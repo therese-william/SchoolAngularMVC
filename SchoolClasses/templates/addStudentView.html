@@ -1,0 +1,24 @@
+﻿<br />
+<form name="addStudentForm" novalidate ng-submit="saveStudent()">
+    <fieldset>
+        <div class="row">
+            <label for="firstName" class="span2">First Name</label>
+            <input name="firstName" type="text" data-ng-model="newStudent.firstName" required class="span8" />
+            <span class="error span2" ng-show="addStudentForm.firstName.$error.required">*</span>
+        </div><br />
+        <div class="row">
+            <label for="lastName" class="span2">Last Name</label>
+            <input name="lastName" type="text" data-ng-model="newStudent.lastName" required class="span8" />
+            <span class="error span2" ng-show="addStudentForm.lastName.$error.required">*</span>
+        </div><br />
+        <div class="row">
+            <label for="age" class="span2">Age</label>
+            <input name="age" type="number" data-ng-model="newStudent.age" required class="span8" />
+            <span class="error span2" ng-show="addStudentForm.age.$error.required">*</span>
+        </div><br />
+        <div>
+            <input type="submit" class="btn" value="Save" ng-disabled="addStudentForm.$invalid" />
+            <a href="#/" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,160 @@
+﻿<style>
+    .highGPA {
+        color: red;
+    }
+
+    .selected {
+        background-color: #ccc;
+    }
+
+    .loading {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,.5);
+    }
+
+    .loading-wheel {
+        width: 20px;
+        height: 20px;
+        margin-top: -40px;
+        margin-left: -40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-width: 30px;
+        border-radius: 50%;
+        -webkit-animation: spin 1s linear infinite;
+        -moz-animation: spin 1s linear infinite;
+        -o-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+    }
+
+    .style-2 .loading-wheel {
+        border-style: double;
+        border-color: #ccc transparent;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0);
+            -moz-transform: rotate(0);
+            -ms-transform: rotate(0);
+            -o-transform: rotate(0);
+            transform: rotate(0);
+        }
+
+        100% {
+            -webkit-transform: rotate(-360deg);
+            -moz-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+            -o-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+        }
+    }
+
+@-moz-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+        100% {
+            -webkit-transform: rotate(-360deg);
+            -moz-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+            -o-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+        }
+    }
+
+@keyframes spin {
+        0% {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+        }
+
+        100% {
+            -webkit-transform: rotate(-360deg);
+            -moz-transform: rotate(-360deg);
+            -ms-transform: rotate(-360deg);
+            -o-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+        }
+    }
+</style>
+<div>
+    <div class="page-header h3">
+        Classes
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <a class="btn btn-info" href="#/addClass/">Add New Class</a>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Location</th>
+                    <th>Teacher Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in data.classes" ng-class="{selected: c.id === idSelectedClass}" ng-click="setSelectedClass(c)">
+                    <td>{{c.className}}</td>
+                    <td>{{c.location}}</td>
+                    <td>{{c.teacherName}}</td>
+                    <td><a ng-href="#/class/{{ c.id }}">Edit</a></td>
+                    <td><a ng-click="data.deleteClass(c)">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div ng-show="idSelectedClass > 0">
+    <div class="page-header h3">
+        {{data.selectedClass.className}}
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <a class="btn btn-info" href="#/addStudentClass">Add New Student to Class</a>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Age</th>
+                    <th>GPA</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in data.classDetails">
+                    <td ng-class="{highGPA:s.gpa > 3.2}">{{s.studentFullName}}</td>
+                    <td>{{s.age}}</td>
+                    <td>{{s.gpa}}</td>
+                    <td><a ng-href="#/studentClass/{{ s.id }}">Edit</a></td>
+                    <td><a ng-click="data.deleteStudentClass(s)">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-show="data.classDetails.length == 0">
+        No students are added to this class yet.
+    </div>
+</div>
+
+<div class="loading style-2" ng-show="isBusy"><div class="loading-wheel"></div></div>

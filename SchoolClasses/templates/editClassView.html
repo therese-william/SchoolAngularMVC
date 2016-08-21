@@ -1,0 +1,24 @@
+﻿<br />
+<form name="editClassForm" novalidate ng-submit="saveClass()">
+    <fieldset>
+        <div class="row">
+            <label for="className" class="span2">Class Name</label>
+            <input name="className" type="text" data-ng-model="updatedClass.className" required  class="span8"/>
+            <span class="error span2" ng-show="editClassForm.className.$error.required">*</span>
+        </div><br />
+        <div class="row">
+            <label for="location" class="span2">Location</label>
+            <input name="location" type="text" data-ng-model="updatedClass.location" required class="span8" />
+            <span class="error span2" ng-show="editClassForm.location.$error.required">*</span>
+        </div><br />
+        <div class="row">
+            <label for="teacherName" class="span2">Teacher Name</label>
+            <input name="teacherName" type="text" data-ng-model="updatedClass.teacherName" required class="span8" />
+            <span class="error span2" ng-show="editClassForm.teacherName.$error.required">*</span>
+        </div><br />
+        <div>
+            <input type="submit" class="btn" value="Save" ng-disabled="editClassForm.$invalid" />
+            <a href="#/" class="btn">Cancel</a>
+        </div>
+    </fieldset>
+</form>
