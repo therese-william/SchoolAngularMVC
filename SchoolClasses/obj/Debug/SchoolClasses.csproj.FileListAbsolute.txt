@@ -83,7 +83,6 @@ D:\Therese\projects\SchoolClasses\SchoolClasses\bin\System.Web.WebPages.Deployme
 D:\Therese\projects\SchoolClasses\SchoolClasses\bin\System.Web.WebPages.Razor.xml
 D:\Therese\projects\SchoolClasses\SchoolClasses\bin\Antlr3.Runtime.pdb
 D:\Therese\projects\SchoolClasses\SchoolClasses\bin\Newtonsoft.Json.xml
-D:\Therese\projects\SchoolClasses\SchoolClasses\obj\Debug\SchoolClasses.csprojResolveAssemblyReference.cache
 D:\Therese\projects\SchoolClasses\SchoolClasses\obj\Debug\SchoolClasses.dll
 D:\Therese\projects\SchoolClasses\SchoolClasses\obj\Debug\SchoolClasses.pdb
 D:\Therese\projects\SchoolClasses\SchoolClasses\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
